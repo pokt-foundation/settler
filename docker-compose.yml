@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+  eth-mainnet:
+    image: settler:latest
+    container_name: eth-mainnet
+    volumes:
+      - ./eth.txt:/query.txt
+    command: "/bin/sh -c 'while true; do sleep 5; curl -H \"content-type: application/json\" -d @/query.txt https://eth-mainnet.gateway.pokt.network/v1/6040edabe1261e00308bfa93 >> output.txt; done;'"
+
+  avax-mainnet:
+    image: settler:latest
+    container_name: avax-mainnet
+    volumes:
+      - ./ava.txt:/query.txt
+    command: "/bin/sh -c 'while true; do sleep 5; curl -H \"content-type: application/json\" -d @/query.txt https://avax-mainnet.gateway.pokt.network/v1/lb/605238bf6b986eea7cf36d5e/ext/info >> output.txt; done;'"
