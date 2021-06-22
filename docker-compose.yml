@@ -1,16 +1,30 @@
 version: "2"
 
 services:
-  eth-mainnet:
+  fuse-mainnet:
     image: settler:latest
-    container_name: eth-mainnet
+    container_name: fuse-mainnet
     volumes:
       - ./eth.txt:/query.txt
-    command: "/bin/sh -c 'while true; do sleep 5; curl -H \"content-type: application/json\" -d @/query.txt https://eth-mainnet.gateway.pokt.network/v1/6040edabe1261e00308bfa93 >> output.txt; done;'"
+    command: "/bin/sh -c 'while true; do sleep 5; curl -H \"content-type: application/json\" -d @/query.txt https://fuse-mainnet.gateway.pokt.network/v1/60d2195247921f33f9d5aa68 >> output.txt; done;'"
+
+  xdai-mainnet:
+    image: settler:latest
+    container_name: xdai-mainnet
+    volumes:
+      - ./eth.txt:/query.txt
+    command: "/bin/sh -c 'while true; do sleep 5; curl -H \"content-type: application/json\" -d @/query.txt https://poa-xdai.gateway.pokt.network/v1/60d2195247921f33f9d5aa68 >> output.txt; done;'"
 
   avax-mainnet:
     image: settler:latest
     container_name: avax-mainnet
     volumes:
       - ./ava.txt:/query.txt
-    command: "/bin/sh -c 'while true; do sleep 5; curl -H \"content-type: application/json\" -d @/query.txt https://avax-mainnet.gateway.pokt.network/v1/lb/605238bf6b986eea7cf36d5e/ext/info >> output.txt; done;'"
+    command: "/bin/sh -c 'while true; do sleep 5; curl -H \"content-type: application/json\" -d @/query.txt https://avax-mainnet.gateway.pokt.network/v1/lb/60d2195247921f33f9d5aa68/ext/info >> output.txt; done;'"
+
+  eth-trace:
+    image: settler:latest
+    container_name: eth-trace
+    volumes:
+      - ./eth.txt:/query.txt
+    command: "/bin/sh -c 'while true; do sleep 5; curl -H \"content-type: application/json\" -d @/query.txt https://eth-trace.gateway.pokt.network/v1/60d2195247921f33f9d5aa68 >> output.txt; done;'"
