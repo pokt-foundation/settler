@@ -1,27 +1,5 @@
 version: '2.1'
 services:
-  
-  evm-testnet:
-    image: settler:latest
-    container_name: evm-testnet
-    volumes:
-      - ./eth.txt:/query.txt
-    command: "/bin/sh -c 'while true; do sleep 0.30; curl -sS -H \"content-type: application/json\" -d @/query.txt https://evmos-testnet.gateway.pokt.network/v1/613e06ce6de3a1182c7fb8e0 >> output.txt; done;'"
-
-  iot-mainnet:
-    image: settler:latest
-    container_name: iot-mainnet
-    volumes:
-      - ./eth.txt:/query.txt
-    command: "/bin/sh -c 'while true; do sleep 0.30; curl -sS -H \"content-type: application/json\" -d @/query.txt https://iotex-mainnet.gateway.pokt.network/v1/613e06ce6de3a1182c7fb8e0 >> output.txt; done;'"
-
-  harmony-mainnet:
-    image: settler:latest
-    container_name: harmony-0
-    volumes:
-      - ./hmy.txt:/query.txt
-    command: "/bin/sh -c 'while true; do sleep 0.1; curl -sS -H \"content-type: application/json\" -d @/query.txt https://harmony-0.gateway.pokt.network/v1/60d2195247921f33f9d5aa68 >> output.txt; done;'"
-
   solana-mainnet:
     image: settler:latest
     container_name: solana-mainnet
@@ -35,6 +13,7 @@ services:
     volumes:
       - ./sol.txt:/query.txt
     command: "/bin/sh -c 'while true; do sleep 0.1; curl -sS -H \"content-type: application/json\" -d @/query.txt https://solana-mainnet.gateway.pokt.network/v1/613e06ce6de3a1182c7fb8e0 >> output.txt; done;'"
+
 
   poly-mainnet:
     image: settler:latest
@@ -57,6 +36,20 @@ services:
       - ./eth.txt:/query.txt
     command: "/bin/sh -c 'while true; do sleep 0.28; curl -sS -H \"content-type: application/json\" -d @/query.txt https://bsc-mainnet.gateway.pokt.network/v1/613e06ce6de3a1182c7fb8e0 >> output.txt; done;'"
 
+  bsc-archival:
+    image: settler:latest
+    container_name: bsc-archival
+    volumes:
+      - ./eth.txt:/query.txt
+    command: "/bin/sh -c 'while true; do sleep 0.22; curl -sS -H \"content-type: application/json\" -d @/query.txt https://bsc-archival.gateway.pokt.network/v1/60d2195247921f33f9d5aa68 >> output.txt; done;'"
+
+  fuse-mainnet:
+    image: settler:latest
+    container_name: fuse-mainnet
+    volumes:
+      - ./eth.txt:/query.txt
+    command: "/bin/sh -c 'while true; do sleep 0.23; curl -sS -H \"content-type: application/json\" -d @/query.txt https://fuse-mainnet.gateway.pokt.network/v1/613e06ce6de3a1182c7fb8e0 >> output.txt; done;'"
+
   fuse-archival:
     image: settler:latest
     container_name: fuse-archival
@@ -64,19 +57,12 @@ services:
       - ./eth.txt:/query.txt
     command: "/bin/sh -c 'while true; do sleep 0.18; curl -sS -H \"content-type: application/json\" -d @/query.txt https://fuse-archival.gateway.pokt.network/v1/613e06ce6de3a1182c7fb8e0 >> output.txt; done;'"
 
-  xdai-archival:
+   xdai-archival:
     image: settler:latest
     container_name: xdai-archival
     volumes:
       - ./eth.txt:/query.txt
     command: "/bin/sh -c 'while true; do sleep 0.23; curl -sS -H \"content-type: application/json\" -d @/query.txt https://poa-xdai-archival.gateway.pokt.network/v1/60d2195247921f33f9d5aa68 >> output.txt; done;'"
-
-  avax-archival:
-    image: settler:latest
-    container_name: avax-archival
-    volumes:
-      - ./ava.txt:/query.txt
-    command: "/bin/sh -c 'while true; do sleep 0.28; curl -sS -H \"content-type: application/json\" -d @/query.txt https://avax-archival.gateway.pokt.network/v1/613e06ce6de3a1182c7fb8e0/ext/info >> output.txt; done;'"
 
   avax-mainnet:
     image: settler:latest
@@ -112,17 +98,3 @@ services:
     volumes:
       - ./eth.txt:/query.txt
     command: "/bin/sh -c 'while true; do sleep 0.28; curl -sS -H \"content-type: application/json\" -d @/query.txt https://eth-rinkeby.gateway.pokt.network/v1/60d2195247921f33f9d5aa68 >> output.txt; done;'"
-  
-  oec-mainnet:
-    image: settler:latest
-    container_name: oec-mainnet
-    volumes:
-      - ./eth.txt:/query.txt
-    command: "/bin/sh -c 'while true; do sleep 0.28; curl -sS -H \"content-type: application/json\" -d @/query.txt https://oec-mainnet.gateway.pokt.network/v1/60d2195247921f33f9d5aa68 >> output.txt; done;'"
- 
-    boba-mainnet:
-    image: settler:latest
-    container_name: boba-mainnet
-    volumes:
-      - ./eth.txt:/query.txt
-    command: "/bin/sh -c 'while true; do sleep 0.28; curl -sS -H \"content-type: application/json\" -d @/query.txt https://boba-mainnet.gateway.pokt.network/v1/60d2195247921f33f9d5aa68 >> output.txt; done;'"
