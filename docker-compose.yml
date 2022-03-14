@@ -120,7 +120,7 @@ services:
       - ./eth.txt:/query.txt
     command: "/bin/sh -c 'while true; do sleep 0.28; curl -sS -H \"content-type: application/json\" -d @/query.txt https://oec-mainnet.gateway.pokt.network/v1/60d2195247921f33f9d5aa68 >> output.txt; done;'"
  
-    boba-mainnet:
+  boba-mainnet:
     image: settler:latest
     container_name: boba-mainnet
     volumes:
