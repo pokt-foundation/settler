@@ -1,12 +1,12 @@
 version: '2.1'
 services:
-  
-  evm-testnet:
+
+  evm-mainnet:
     image: settler:latest
-    container_name: evm-testnet
+    container_name: evm-mainet
     volumes:
       - ./eth.txt:/query.txt
-    command: "/bin/sh -c 'while true; do sleep 0.30; curl -sS -H \"content-type: application/json\" -d @/query.txt https://evmos-testnet.gateway.pokt.network/v1/613e06ce6de3a1182c7fb8e0 >> output.txt; done;'"
+    command: "/bin/sh -c 'while true; do sleep 0.30; curl -sS -H \"content-type: application/json\" -d @/query.txt https://evmos-rpc.gateway.pokt.network >> output.txt; done;'"
 
   iot-mainnet:
     image: settler:latest
@@ -112,17 +112,58 @@ services:
     volumes:
       - ./eth.txt:/query.txt
     command: "/bin/sh -c 'while true; do sleep 0.28; curl -sS -H \"content-type: application/json\" -d @/query.txt https://eth-rinkeby.gateway.pokt.network/v1/60d2195247921f33f9d5aa68 >> output.txt; done;'"
-  
+
   oec-mainnet:
     image: settler:latest
     container_name: oec-mainnet
     volumes:
       - ./eth.txt:/query.txt
     command: "/bin/sh -c 'while true; do sleep 0.28; curl -sS -H \"content-type: application/json\" -d @/query.txt https://oec-mainnet.gateway.pokt.network/v1/60d2195247921f33f9d5aa68 >> output.txt; done;'"
- 
+
   boba-mainnet:
     image: settler:latest
     container_name: boba-mainnet
     volumes:
       - ./eth.txt:/query.txt
     command: "/bin/sh -c 'while true; do sleep 0.28; curl -sS -H \"content-type: application/json\" -d @/query.txt https://boba-mainnet.gateway.pokt.network/v1/60d2195247921f33f9d5aa68 >> output.txt; done;'"
+
+  avax-dfk:
+    image: settler:latest
+    container_name: avax-dfk
+    volumes:
+      - ./eth.txt:/query.txt
+    command: "/bin/sh -c 'while true; do sleep 0.28; curl -sS -H \"content-type: application/json\" -d @/query.txt https://avax-dfk.gateway.pokt.network/v1/60d2195247921f33f9d5aa68/ext/bc/q2aTwKuyzgs8pynF7UXBZCU7DejbZbZ6EUyHr3JQzYgwNPUPi/rpc >> output.txt; done;'"
+
+  fantom-mainnet:
+    image: settler:latest
+    container_name: fantom-mainnet
+    volumes:
+      - ./eth.txt:/query.txt
+    command: "/bin/sh -c 'while true; do sleep 0.28; curl -sS -H \"content-type: application/json\" -d @/query.txt https://fantom-rpc.gateway.pokt.network >> output.txt; done;'"
+
+  near-mainnet:
+    image: settler:latest
+    container_name: near-mainnet
+    volumes:
+      - ./near.txt:/query.txt
+    command: "/bin/sh -c 'while true; do sleep 0.28; curl -sS -H \"content-type: application/json\" -d @/query.txt https://near-rpc.gateway.pokt.network >> output.txt; done;'"
+
+  avax-cra:
+    image: settler:latest
+    container_name: avax-cra
+    volumes:
+      - ./eth.txt:/query.txt
+    command: "/bin/sh -c 'while true; do sleep 0.28; curl -sS -H \"content-type: application/json\" -d @/query.txt https://avax-cra-rpc.gateway.pokt.network >> output.txt; done;'"
+
+  moonbeam-mainnet:
+    image: settler:latest
+    container_name: moonbeam-mainnet
+    volumes:
+      - ./eth.txt:/query.txt
+    command: "/bin/sh -c 'while true; do sleep 0.28; curl -sS -H \"content-type: application/json\" -d @/query.txt https://moonbeam-rpc.gateway.pokt.network >> output.txt; done;'"
+  # moonriver-mainnet:
+  #   image: settler:latest
+  #   container_name: moonriver-mainnet
+  #   volumes:
+  #     - ./eth.txt:/query.txt
+  #   command: "/bin/sh -c 'while true; do sleep 0.28; curl -sS -H \"content-type: application/json\" -d @/query.txt https://moonriver-mainnet.gateway.pokt.network/v1/60d2195247921f33f9d5aa68/ext/bc/q2aTwKuyzgs8pynF7UXBZCU7DejbZbZ6EUyHr3JQzYgwNPUPi/rpc >> output.txt; done;'"
